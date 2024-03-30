@@ -145,7 +145,7 @@ fn create_project_dir(new_project: &NewProject) -> Result<String, io::Error>{
     }
 
     fs::create_dir_all(&project_dir)?;  
-    println!("Project to be created: {}", project_dir);
+    // println!("Project to be created: {}", project_dir);
     initialize_git_repo(&project_dir)?;
 
     Ok(project_dir)
@@ -217,7 +217,7 @@ fn start_or_attach_tmux_session(project_name: &str, project_dir: &str, language:
             .output().unwrap();
     }
 
-    println!("Attaching to tmux session: {}", project_name);
+    // println!("Attaching to tmux session: {}", project_name);
     Ok(())
 }
 
@@ -309,7 +309,7 @@ fn setup_rust_project(project_dir: &str, new_project: &NewProject) -> Result<(),
         return Err(io::Error::new(io::ErrorKind::Other, error_message.to_string()));
     }
 
-    println!("Rust project setup in {}", project_dir);
+    // println!("Rust project setup in {}", project_dir);
     Ok(())
 }
 
@@ -335,7 +335,7 @@ fn process_new_project(new_project: &NewProject) {
 
     match new_project.language {
         Language::Python | Language::Py => {
-            println!("Creating a Python project: {:?}", new_project.project_type);
+            // println!("Creating a Python project: {:?}", new_project.project_type);
             setup_python_project(&project_dir, &new_project);
         },
         Language::Rust | Language::Rs => {
@@ -412,7 +412,7 @@ fn main() {
     let cli = Cli::parse();
     match &cli.command {
         Commands::New(new_project) => {
-            println!("Got: {:?}", new_project);
+            // println!("Got: {:?}", new_project);
             process_new_project(&new_project);
         },
         Commands::Clone(clone) => {
