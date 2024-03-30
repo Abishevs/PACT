@@ -389,7 +389,7 @@ fn process_project_clone(new_clone: &CloneProject) -> Result<(), io::Error> {
 
     println!("Cloned repo: '{}' into dir: '{}/{}'", new_clone.url, project_dir, project_name);
     start_or_attach_tmux_session(&project_name,
-                                 &project_dir,
+                                 &format!("{}/{}",project_dir, project_name),
                                  &new_clone.language)?;
     Ok(())
 
