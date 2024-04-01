@@ -198,16 +198,28 @@ fn start_or_attach_tmux_session(project_name: &str, project_dir: &str, language:
             let error_message = String::from_utf8_lossy(&switch_to_session.stderr);
             return Err(io::Error::new(io::ErrorKind::Other, error_message.to_string()));
         }
-    } else {
+    } 
+    else {
         // Not inside TMUX, create and attach to new session
         let new_session = Command::new("tmux")
-            .args(["new-session", "-s", project_name, "-c", project_dir])
+            .args(["new-session", "-d", "-s", project_name, "-c", project_dir])
             .output()?;
         
         if !new_session.status.success() {
             let error_message = String::from_utf8_lossy(&new_session.stderr);
             return Err(io::Error::new(io::ErrorKind::Other, error_message.to_string()));
-        }
+
+        } 
+
+        let cmd = format!("tmux attach-session -t {}", project_name);
+        println!("WTF");
+        Command::new("sh")
+            .arg("-c")
+            .arg(&cmd)
+            // .args(["attach-session", "-t", project_name])
+            .output()?;
+
+
     }
 
     if let Some(setup_command) = get_language_setup_command(&language, &project_dir) {
