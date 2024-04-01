@@ -211,14 +211,9 @@ fn start_or_attach_tmux_session(project_name: &str, project_dir: &str, language:
 
         } 
 
-        let cmd = format!("tmux attach-session -t {}", project_name);
-        println!("WTF");
-        Command::new("sh")
-            .arg("-c")
-            .arg(&cmd)
-            // .args(["attach-session", "-t", project_name])
+        Command::new("tmux")
+            .args(["attach-session", "-t", project_name])
             .output()?;
-
 
     }
 
