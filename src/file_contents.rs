@@ -1,3 +1,14 @@
+pub const ARDUINO_SKETCH_CONTENT: &str = "\
+void setup() {
+  Serial.begin(115200); 
+  Serial.println(\"Hello world\");
+}
+
+void loop() {
+}
+
+";
+
 pub const MIT_LICENSE_CONTENT: &str = "\
 MIT License
 
