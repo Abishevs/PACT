@@ -2,7 +2,7 @@
 name = "pact"
 version = "0.1.0"
 edition = "2021"
-description = "A short description of my package"
+description = "P.A.C.T. - Project Automation, Configuration, and Terminal Multiplexing"
 readme = "README.md"
 repository = "https://github.com/Abishevs/PACT.git"
 license-file = "LICENSE"
