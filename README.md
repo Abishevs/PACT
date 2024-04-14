@@ -7,11 +7,6 @@ name (for use with TMS-Tmux sessionizer). Then if lang has specific env to start
 like py venv, it will be started for you in tmux.  
 
 ## Installation
-### Ensure rust PATH is setup
 ```bash
-export PATH="$HOME/.cargo/bin:$PATH"
-```
-Then install it user-wide
-```bash
-cargo install --path .
+cargo install pact-cli
 ```

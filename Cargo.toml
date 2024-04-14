@@ -1,5 +1,5 @@
 [package]
-name = "pact"
+name = "pact-cli"
 version = "0.1.0"
 edition = "2021"
 description = "P.A.C.T. - Project Automation, Configuration, and Terminal Multiplexing"
