@@ -32,11 +32,6 @@ void print_project(Project *project);
 /* Helper */
 void get_root_dir_path(Project *project, char *root_dir);
 
-/* Parsers */
-// Project parse_project(int argc, char *argv[], Command cmd) ;
-// void parse_new(int argc, char *argv[]);
-// void parse_clone(int argc, char *argv[]) ;
-
 /* Handlers */
 void handle_new_project(Project *project);
 void handle_clone_project(Project *project);
@@ -157,7 +152,7 @@ void handle_new_project(Project *project) {
 
     int path_exist = create_root_dir(root_dir);
     if (!path_exist){
-        run_project_init(project->lang, project->name, root_dir, PACT_TEMPLATES);
+        run_project_init(project->lang, root_dir, PACT_TEMPLATES);
         init_git(root_dir);
     }
     start_tmux(project->name, root_dir);

@@ -19,18 +19,8 @@ void normalize_path(char *path) {
     *dest = '\0';
 }
 
-void run_project_init(const Language *lang, const char *project_name, const char *root_dir, const char *templates_dir) {
+void run_project_init(const Language *lang, const char *root_dir, const char *templates_dir) {
     // Run init_command if defined
-    // if (lang->init_command) {
-    //     printf("Running init command for language: %s\n", lang->full_name);
-    //     char command[1024];
-    //     snprintf(command, sizeof(command), "cd %s && %s", root_dir, lang->init_command);
-    //     if (system(command) != 0) {
-    //         fprintf(stderr, "Error: Failed to execute init command for '%s'.\n", lang->full_name);
-    //         exit(1);
-    //     }
-    // }
-
     if (lang->init_command) {
         printf("Running init command for language: %s\n", lang->full_name);
 

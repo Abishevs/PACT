@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include "types.h"
 
-void run_project_init(const Language *lang, const char *project_name, const char *root_dir, const char *templates_dir);
+void run_project_init(const Language *lang, const char *root_dir, const char *templates_dir);
 void build_root_dir(const char *base_path, const char *type, const char *lang, const char *project_name, char *result, size_t result_size);
 int create_root_dir(const char *root_dir);
 void cp_templates(const char *root_dir, const char *path_templates); 
