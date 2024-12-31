@@ -116,9 +116,9 @@ void get_repo_name(const char *url, char *repo_name, size_t max_length) {
     repo_name[name_length] = '\0'; // Null-terminate the string
 }
 
-void git_clone(char *repo_url, char *project_name, char *root_dir) {
+void git_clone(char *repo_url, char *new_path) {
     char command[1024];
-    snprintf(command, sizeof(command), "git clone %s %s/%s", repo_url, root_dir, project_name);
+    snprintf(command, sizeof(command), "git clone %s %s", repo_url, new_path);
     if (system(command) != 0) {
         exit(1); // Exit and show errors from git command 
     }

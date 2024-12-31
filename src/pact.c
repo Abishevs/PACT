@@ -184,8 +184,7 @@ void handle_clone_project(Project *project){
             );
 
     printf("Root directory: %s\n", root_dir);
-
-    git_clone(project->url, project->name, root_dir);
+    git_clone(project->url, root_dir);
     start_tmux(project->name, root_dir);
 
 }

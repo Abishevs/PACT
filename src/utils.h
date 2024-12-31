@@ -9,7 +9,7 @@ int create_root_dir(const char *root_dir);
 void cp_templates(const char *root_dir, const char *path_templates); 
 void init_git(const char *path);
 void get_repo_name(const char *url, char *repo_name, size_t max_length);
-void git_clone(char *repo_url, char *project_name, char *root_dir);
+void git_clone(char *repo_url, char *new_path);
 // Starts tmux session with name of project in root dir
 void start_tmux(const char *project_name,const char *root_dir);
 
