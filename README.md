@@ -42,6 +42,8 @@ intrested).
 ---
 
 ## Installation
+I Store my templates in another repo [PACT_templates](https://github.com/Abishevs/PACT_Templates)
+But a template structure is included in pact_templates dir. You can use that
 
 1. Clone the repository:
    ```bash

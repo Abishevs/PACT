@@ -1,4 +1,4 @@
-# Project Title
+# {{ project_name }} 
 
 A short description about the project.
 
@@ -37,3 +37,6 @@ ohooo --help
 * Confluence link:
 * Asana board:
 * etc...
+
+## License
+This project is under MIT license
