@@ -1,0 +1,34 @@
+repos:
+  - repo: local
+    hooks:
+      - id: rustfmt
+        name: RustFmt
+        entry: cargo fmt --all
+        language: system
+        stages: [pre-commit]
+        pass_filenames: false
+        exclude: ^pact_templates/
+
+      - id: clippy
+        name: Clippy Lint
+        entry: cargo clippy --all-targets --all-features
+        language: system
+        stages: [pre-commit]
+        pass_filenames: false
+        exclude: ^pact_templates/
+
+      - id: cargo-test
+        name: Cargo Test
+        entry: cargo test --all --quiet
+        language: system
+        stages: [pre-commit]
+        pass_filenames: false
+        exclude: ^pact_templates/
+
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
+    hooks:
+      - id: trailing-whitespace
+        exclude: ^pact_templates/
+      - id: end-of-file-fixer
+        exclude: ^pact_templates/
