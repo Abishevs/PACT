@@ -9,6 +9,13 @@ void loop() {
 
 ";
 
+pub const C_CONTENT: &str = "\
+int main() {
+    return 0;
+};
+";
+
+
 pub const MIT_LICENSE_CONTENT: &str = "\
 MIT License
 
