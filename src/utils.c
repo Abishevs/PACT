@@ -19,7 +19,7 @@ void normalize_path(char *path) {
     *dest = '\0';
 }
 
-void run_project_init(const Language *lang, const char *root_dir, const char *templates_dir) {
+void run_project_init(const Language *lang, const char *root_dir, const char *templates_dir, const char *shell) {
     // Run init_command if defined
     if (lang->init_command) {
         printf("Running init command for language: %s\n", lang->full_name);
@@ -32,6 +32,7 @@ void run_project_init(const Language *lang, const char *root_dir, const char *te
         if (!user_shell) {
             user_shell = "/bin/sh"; // Default to bash if SHELL is not set
         }
+        printf("SHELL: %s", user_shell);
 
         // Run the command in the user's shell
         char shell_command[2048];

@@ -152,7 +152,7 @@ void handle_new_project(Project *project) {
 
     int path_exist = create_root_dir(root_dir);
     if (!path_exist){
-        run_project_init(project->lang, root_dir, PACT_TEMPLATES);
+        run_project_init(project->lang, root_dir, PACT_TEMPLATES, SHELL);
         init_git(root_dir);
     }
     start_tmux(project->name, root_dir);
