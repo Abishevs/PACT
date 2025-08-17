@@ -1,6 +1,6 @@
 [package]
 name = "pact-cli"
-version = "2.0.0"
+version = "0.1.0"
 edition = "2021"
 description = "P.A.C.T. - Project Automation, Configuration, and Terminal Multiplexing"
 readme = "README.md"

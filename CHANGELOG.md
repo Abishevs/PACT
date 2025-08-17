@@ -1,6 +1,6 @@
 # Changelog
 
-## v2.0.0 New era of Rust version of the CLI
+## v0.1.0 New era of Rust version of the CLI
 - code refactor from intial rust version
 - base line for continues improvments based on usage.
 - Better CLI handling
@@ -11,13 +11,6 @@
   git checkout c-suckless
   ```
 
-## v1.0.0 – Original C Version
-- C suckless re-implementation.
-- introduced templates as files.
-- To use this version:
-  ```bash
-  git checkout v1.0.0
-  ```
-
 ## Untagged first version
 This version was the baseline of the CLI, writen in Rust.
+On crates.io its version 0.0.1, but it was not tagged in git.
