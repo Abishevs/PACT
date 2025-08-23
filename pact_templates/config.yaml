@@ -1,0 +1,67 @@
+# pact new project_name -l py -t personal
+# This will create a new dir inside $HOME/dev/personal/python/project_name
+# Run pre stuff like logging, doesnt neeed to be present
+# Main stuff is when its already inside that dir, so like copying templates etc
+# post is for running after its done. meaning to eg start a virtual venv env for
+# example when tmux is initiated in headless state already.
+# Meaning that all common run before config specific ones :)
+# I want the config to be as simple as, yet flexible as possible
+base_dir: "$HOME/dev/"
+types:
+  - t: "personal"
+    alias: "p"
+  - t: "work"
+    alias: "w"
+  - t: "school"
+    alias: "s"
+  - t: "scratch"
+    alias: "IDK"
+
+common:
+  pre:
+    - run:
+        cmd: "echo"
+        args: ["'Scafollding for project {{project_name}} in {{project_dir}} for type {{project_type}}'"]
+  main:
+    - run:
+      cmd: "echo"
+      args: ["Running main already inside the the newly created dir!"]
+    - run:
+      cmd: "cp"
+      args: ["copy templates like common readme"]
+    - run:
+      cmd: "git"
+      args: ["init"]
+  post:
+    # This is the post step
+    - run:
+      cmd: "tmux"
+      args: ["PLACEHOLDER, but it should create and attach to the session inside this dir"]
+
+# clone:
+#   default:
+#     main:
+#       - clone:
+    
+new:
+  py: 
+    dir: "python" # Coresponds to the language from above
+    pre:
+      - run:
+        cmd: "touch"
+        args: ["hello.py", "README.md"]
+    main:
+      - run:
+        cmd: "python3"
+        args: ["-m", "venv", ".venv"]
+    post:
+      - run:
+        cmd: "source"
+        args: [".venv/bin/activate"]
+  
+  rs:
+    dir: "rust"
+    main:
+      - run:
+        cmd: "cargo"
+        args: ["init"]
