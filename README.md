@@ -27,7 +27,7 @@ a dir with boilerplate python code + start the tmux session and switch to it.
 In the post phase u can also start the virtual env, such that when u are
 attached to the tmux session it will be already ready to use.
 
-Am using (tmux-sessionizer)[https://crates.io/crates/tmux-sessionizer] which expects a config of dirs of git repos
+Am using [tmux-sessionizer](https://crates.io/crates/tmux-sessionizer) which expects a config of dirs of git repos
 For easy managment they are all placed in the $HOME/dev dir. So this tool
 integrates nicely into this workflow. New projects are not started that often,
 but cloning is done often. This makes it trivial to do with a minimal mental

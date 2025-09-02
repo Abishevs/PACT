@@ -7,61 +7,41 @@
 # Meaning that all common run before config specific ones :)
 # I want the config to be as simple as, yet flexible as possible
 base_dir: "$HOME/dev/"
+shell: "$SHELL"
+
 types:
-  - t: "personal"
-    alias: "p"
-  - t: "work"
-    alias: "w"
-  - t: "school"
-    alias: "s"
-  - t: "scratch"
-    alias: "IDK"
+  p: "personal"
+  w: "work"
+  s: "school"
+  t: "scratch"
 
 common:
   pre:
-    - run:
-        cmd: "echo"
-        args: ["'Scafollding for project {{project_name}} in {{project_dir}} for type {{project_type}}'"]
+    - "echo 'Scaffolding for project {{project_name}} in {{project_dir}} for type {{project_type}}'"
   main:
-    - run:
-      cmd: "echo"
-      args: ["Running main already inside the the newly created dir!"]
-    - run:
-      cmd: "cp"
-      args: ["copy templates like common readme"]
-    - run:
-      cmd: "git"
-      args: ["init"]
+    - "echo 'Running main already inside the the newly created dir!'"
+    - "cp 'copy templates like common readme'"
+    - "git init"
   post:
-    # This is the post step
-    - run:
-      cmd: "tmux"
-      args: ["PLACEHOLDER, but it should create and attach to the session inside this dir"]
+    - "tmux"
 
-# clone:
-#   default:
-#     main:
-#       - clone:
-    
 new:
-  py: 
-    dir: "python" # Coresponds to the language from above
+  py:
+    dir: "python"
     pre:
-      - run:
-        cmd: "touch"
-        args: ["hello.py", "README.md"]
+      - "touch hello.py README.md"
     main:
-      - run:
-        cmd: "python3"
-        args: ["-m", "venv", ".venv"]
+      - "python3 -m venv .venv"
     post:
-      - run:
-        cmd: "source"
-        args: [".venv/bin/activate"]
+      - "source .venv/bin/activate"
   
   rs:
     dir: "rust"
     main:
-      - run:
-        cmd: "cargo"
-        args: ["init"]
+      - "cargo init"
+
+clone:
+  default:
+    main:
+      - clone:
+    
