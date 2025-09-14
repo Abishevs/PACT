@@ -5,15 +5,6 @@ project scaffolding. A wrapper around other project scafolliding cli commands.
 With support configurable templates and support for Git and tmux,
 PACT provides a to extent customizable workflow for developers.
 
-The tool runs in phases were u can define pre-, main- and post-phases.
-My general workflow is to invoke pact to create a new project dir in the
-Intialise boiler plate of the project, initialise git, and start a headless
-tmux session to which it will attach after the program is done.
-
-Now it will also expose all these phases as a yaml configuration such that user
-can defin very different workflows (eg tmux to anther multiplexer, or simply cd
-into the project dir).
-
 Yet it's still my vision of how I like to work meaning it won't work for
 everyone and that's not the point of this tool either. The point it's flexible 
 and you can define it once and then have a unified interface to create new
@@ -35,32 +26,42 @@ overhead. No more thinking to where to place the repos and no cd and chaning
 git clone name etc.
 
 ## Features
+### Config
+My config is stored in .config/pact/<langs>.zsh
+and are managed by stow in [my .dotfiles/packages/pact/.config/pact
+repo](https://github.com/Abishevs/.dotfiles)
+You can also define _<helpers>.zsh in the config, by sourcing those files you
+can get common functions for configs, also functions that are not named
+<lang>_<foo>() will be ignored for the parser use that for modulurasing your
+configs.
 
 - **New Project Creation**:
-  - Automatically sets up a directory structure based on project type and
-    programming language.
-  - Copies shared and language-specific templates into the project directory.
-  - Initializes Git repositories (if applicable).
-  - Starts a tmux session for the project.
+  - pact new <type> <lang> [extra] <project_name>
+  1. Creates Dir struct <base>/<type>/<lang>/<project_name>, closes if exists
+  2. Initializes Git repo
+  3. Starts a tmux session for the project.
+  4. ALL cmds from the config are run inside the tmux session. Uses <lang> to run default <lang>_default() 
+  5. If [extra] is present, then it would use <lang>_<extra>() function
+     instead, if exists else closes.
+  6. Attaches to the tmux session (by creating new server, or using existing
+     one)
 
 - **Clone Existing Repositories**:
   - Clones a Git repository into a structured directory.
   - Optionally renames the cloned repository.
   - Starts a tmux session for the cloned project.
 
-- **Fully Configurable**:
-
 
 ## Installation
-1. Install from crates.io
-   ```bash
-    cargo install pact-cli
-    ```
 
-### Or compile from source
-   ```bash
-   git clone git@github.com:Abishevs/PACT.git
-   cd pact
-   cargo install --path .
-    ```
+```bash
+git clone git@github.com:Abishevs/PACT.git
+cd pact
+make install
+```
+
+## removing
+```bash
+make uninstall
+```
 

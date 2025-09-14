@@ -1,5 +1,9 @@
 # Changelog
 
+## rust Last tracked version before I moved to writing it in zsh
+- Version of writing it as a yaml config
+- Got painfully comlicated without real benefit
+
 ## v0.1.0 New era of Rust version of the CLI
 - code refactor from intial rust version
 - base line for continues improvments based on usage.
