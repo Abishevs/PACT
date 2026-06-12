@@ -3,7 +3,7 @@
 # Map short aliases to scopes
 declare -A TYPES LANGS
 TYPES=( p personal w work s school )
-LANGS=( py python rs rust )
+LANGS=( py python rs rust lv laravel )
 
 CONFIG_DIR="$HOME"/.config/pact
 BASE_DIR="$HOME"/dev
